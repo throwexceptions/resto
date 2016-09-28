@@ -13,5 +13,5 @@
 
 Auth::routes();
 
-Route::get('/order', 'orderPanelController@index')->middleware('auth');
-Route::get('/', 'HomeController@index')->middleware('auth');
+Route::get('/inventory', 'InventoryController@index')->middleware('auth');
+Route::get('/', 'OrderController@index')->middleware('auth');
