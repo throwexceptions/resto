@@ -1,38 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
 <div class="row">
-<div class="col-md-8 col-md-offset-2">
+<div class="col-md-2 col-md-offset-1">
 <div class="panel panel-default">
 <div class="panel-heading">Inventory Panel</div>
 <div class="panel-body">
-    {!! Form::open(['url' => '/inventory/create', 'method' => 'POST']) !!}
-      <div class="form-group">
-        <label>Menu Name:</label>
-        {!! Form::text('name',null,['class' => 'form-control']) !!}
-      </div>
-      <div class="form-group">
-        <label>Regular Price:</label>
-        {!! Form::text('regualar',null,['class' => 'form-control']) !!}
-      </div>
-      <div class="form-group">
-        <label>Special Price:</label>
-        {!! Form::text('special',null,['class' => 'form-control']) !!}
-      </div>
-      <div class="form-group">
-        <label>Type:</label>
-        {!! Form::select('type', ['Appetizer' => 'Appetizer', 'Main Dish' => 'Main Dish'], 'Main Dish', ['class' => 'form-control']); !!}
-       </div>
-       <div class="form-group">
-        <label>Status:</label>
-        {!! Form::select('type', ['1' => 'Available', '0' => 'Not Available'], '0', ['class' => 'form-control']); !!}
-       </div>
-    {!! Form::close() !!}
+  <a href="{{ url('/overview') }}" class="btn btn-default btn-block">Overview</a>
+  <a href="{{ url('/addmenu') }}" class="btn btn-default btn-block">Add Menu</a>
+  <a href="{{ url('/menutype') }}" class="btn btn-default btn-block">Add Menu Type</a>
 </div>
-<div class="panel-footer" style="height: 55px;">
-    <button type="submit" class="btn btn-primary pull-right">Submit</button>
 </div>
+</div>
+<div class="col-md-8">
+<div class="panel panel-default">
+  @yield('invcon')
 </div>
 </div>
 </div>

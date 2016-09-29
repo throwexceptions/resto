@@ -11,17 +11,14 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="/css/app.css" rel="stylesheet">
-
-
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/sweetalert.css" rel="stylesheet">
 
     <!-- Scripts -->
-    <script type="text/javascript" src="jquery-3.1.1.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+    <script type="text/javascript" src="/js/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -50,7 +47,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a href="{{ url('/inventory') }}">Inventory</a></li>
+                    <li><a href="{{ url('/overview') }}">Inventory</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -89,5 +86,10 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script type="text/javascript" src="/js/sweetalert.min.js"></script>
+
+    <!-- Include this after the sweet alert js file -->
+    @include('sweet::alert')
+
 </body>
 </html>
