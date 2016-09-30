@@ -13,7 +13,13 @@
       </div>
       <div class="form-group">
         <label>Type:</label>
-        {!! Form::select('type', ['Appetizer' => 'Appetizer', 'Main Dish' => 'Main Dish'], 'Main Dish', ['class' => 'form-control']); !!}
+        <select name="type" class="form-control">
+          @foreach($types as $type)
+            <option value="{{ $type->name }}">
+              {{ $type->name }}
+            </option>
+          @endforeach
+        </select>
        </div>
        <div class="form-group">
         <label>Status:</label>

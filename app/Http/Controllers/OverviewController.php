@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\MenuRequest;
 use App\Http\Requests;
 use App\Menus;
+use App\MenuTypes;
 use Validator;
 
 class OverviewController extends Controller
@@ -16,10 +17,11 @@ class OverviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Menus $menu)
+    public function index(Menus $menu, MenuTypes $types)
     {
     	$results = $menu::all();
-        return view('inventory-comp/overview',compact('results'));
+        $types = $types::all();
+        return view('inventory-comp/overview',compact('results','types'));
     }
 
     public function show(Request $request,Menus $menu)
@@ -32,6 +34,12 @@ class OverviewController extends Controller
     {
     	Menus::destroy($request->id);
     	return redirect()->back();
+    }
+
+    public function removetype(Request $request)
+    {
+        MenuTypes::destroy($request->id);
+        return redirect()->back();
     }
 
     public function edit(Request $request, Menus $menu)

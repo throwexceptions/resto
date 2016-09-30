@@ -14,6 +14,8 @@
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/sweetalert.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script type="text/javascript" src="/js/jquery-3.1.1.js"></script>
@@ -47,7 +49,9 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a href="{{ url('/overview') }}">Inventory</a></li>
+                    @if (!Auth::guest())
+                        <li><a href="{{ url('/overview') }}">Inventory</a></li>
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -70,7 +74,7 @@
                                         Logout
                                     </a>
 
-                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ url('/logout') }}" method="GET" style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
                                 </li>

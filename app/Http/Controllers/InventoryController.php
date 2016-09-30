@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Menus;
+use App\MenuTypes;
 use Validator;
 
 class InventoryController extends Controller
@@ -15,9 +16,10 @@ class InventoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(MenuTypes $types)
     {
-        return view('inventory-comp/menuadd');
+        $types = $types::all();
+        return view('inventory-comp/menuadd',compact('types'));
     }
 
     /**
