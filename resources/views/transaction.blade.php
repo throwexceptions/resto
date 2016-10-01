@@ -9,8 +9,12 @@
 <div class="panel-body">
     <form>
       <div class="form-group">
-        <label>Email address:</label>
-        <input type="email" class="form-control" id="email">
+        <label>Request For:</label>
+        {{ Form::select('size', ['occupy' => 'Occupy', 'reserve' => 'For Reserve'], 'occupy',['class'=>'form-control']) }}
+      </div>
+      <div class="form-group">
+        <label>Payment:</label>
+        {{ Form::select('size', ['1' => 'Paid', '0' => 'Not Yet Paid'], '1',['class'=>'form-control']) }}
       </div>
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
