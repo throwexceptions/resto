@@ -13,6 +13,7 @@
 
 Auth::routes();
 
+Route::resource('/transaction/get/menu','TransactionController@getMenu');
 Route::resource('/transaction','TransactionController');
 
 Route::post('/menutype/store', 'MenuTypeController@store')->middleware('auth');
