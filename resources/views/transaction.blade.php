@@ -7,6 +7,7 @@
 <div class="panel panel-default">
 <div class="panel-heading">Order Panel</div>
 <div class="panel-body">
+<<<<<<< HEAD
 <div class="row">
 <div class="col-md-12">
   <div class="form-group">
