@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Menus;
 use App\MenuTypes;
 use Validator;
@@ -19,21 +17,22 @@ class InventoryController extends Controller
     public function index(MenuTypes $types)
     {
         $types = $types::all();
-        return view('inventory-comp/menuadd',compact('types'));
+
+        return view('inventory-comp/menuadd', compact('types'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Menus $menus)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:menus|max:255',
-            'type' => 'required',
-            'status' => 'required',
+            'name'    => 'required|unique:menus|max:255',
+            'type'    => 'required',
+            'status'  => 'required',
             'regular' => 'required|numeric',
             'special' => 'required|numeric',
         ]);
@@ -42,10 +41,11 @@ class InventoryController extends Controller
         if ($validator->fails()) {
             $errors = $validator->errors();
             foreach ($errors->all() as $message) {
-                $error .= '*'.$message."\n";
+                $error .= '*' . $message . "\n";
             }
 
             alert()->error($error, 'Error')->persistent('Close');
+
             return redirect('/addmenu');
         }
 
