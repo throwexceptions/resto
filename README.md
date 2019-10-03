@@ -1,4 +1,4 @@
-# RESTO - A Cashier Management System
+# RESTO - A Cashier Management System designed for different restaurant establishments
 
 
 ## Server Requirements
